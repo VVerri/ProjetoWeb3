@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Victor Verri"></meta>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="Login/login.css">
+        <link rel="stylesheet" href="Login/logado.css">
+        <link rel="stylesheet" href="Busca/busca.css">
+        <link rel="icon" href="https://web.xpi.com.br/wp-content/themes/xpi-acquisition-xp/assets/images/favicon/192.png" sizes="192x192">
+        <title>XP Investimantos | Você no comando da sua vida financeira.</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <header class="header-top">
+            <div class="container-header">
+                <div class="row-header">
+                    <div class="col-logo">
+                        <a class="logo" href="index.html">
+                            <img loading="lazy" src="https://web.xpi.com.br/wp-content/themes/xpi-acquisition-xp/assets/images/header/logo-xpi.svg" alt="XP Investimentos" class="header-logo"> 
+                            <img loading="lazy" src="https://web.xpi.com.br/wp-content/themes/xpi-acquisition-xp/assets/images/header/logo-xpi.svg" alt="XP Investimentos" class="header-logo-hide"> 
+                        </a>
+                        <div class="open-acc-mobile">
+                            <a class="open-acca" href="">abra sua conta</a>
+                        </div>
+                        <button class="mobile-menu">
+                            <span class="mobile-spn">
+        
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-menu">
+                        <ul class="ul-menu">
+                            <li class="li-menu setagira"><button class="word-menu"></button>SOBRE A XP</li>
+                            <li class="li-menu setagira"><button class="word-menu"></button>COMECE A INVESTIR</li>
+                            <li class="li-menu setagira"><button class="word-menu"></button>INVESTIMENTOS</li>
+                            <li class="li-menu setagira"><button class="word-menu"></button>CONTEÚDOS</li>
+                            <li class="li-menu"><button class="word-menu"></button>EMPRESAS</li>
+                            <li class="li-menu"><button class="word-menu"></button>ATENDIMENTO</li>
+                        </ul>
+                    </div>
+                    <div class="col-singup">
+                        <button class="open-account" href="">abra sua conta</button>
+                    </div>
+                    <div class="col-singin">
+                        <button id="buttonLogin" class="login" href="">Acesse sua conta</button>
+                        <button id="buttonLogado" class="logadoBtn" href="">Bem-vindo</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <soma-container full class="sec hydrated">
+            <soma-container full class="princ mobi">
+                <soma-container class="conteu">
+                    <soma-grid class="grids hydrated">
+                        <soma-grid-row class="soma-grid-row hydrated">
+                            <soma-grid-col class="gridcol hydrated">
+                                <div class="leftcol">
+                                    <header class="left-header">
+                                        <soma-heading class="title hydrated">
+                                            <strong>
+                                                <p class="CDB">CDB do Banco XP<br>200% do CDI</p>
+                                            </strong>
+                                        </soma-heading>
+                                        <soma-subtitle class="subtitle hydrated">
+                                            <p style="color: #fff;">Invista em um dos melhores CDBs do mercado<br>
+                                                Disponível entre 05/09 e 15h do dia 30/09</p>
+                                        </soma-subtitle>
+                                    </header>
+                                    <div class="cta-btn">
+                                        <a href="" >
+                                            <button class="soma-btn hydrated">ABRA SUA CONTA</button>
+                                        </a>
+                                    </div>
+                                    <div class="disclaimer">
+                                    <soma-container class="soma-container">
+                                            <span class="h-disclaimer-text"> CDB BANCO XP S.A. Pós-Fixado 200% do CDI a.a. no vencimento. Exclusivo para novos clientes até 30/09/2022 às 15h. Consulte todas as condições <a style="color: #fff;" href="">clicando aqui. </a></span>
+                                    </soma-container> 
+                                    </div>
+                                </div>
+                            </soma-grid-col>
+                            <soma-grid-col class="grid-dir hydrated">
+                                <a class="card-a" href="">
+                                    <soma-card class="soma-card hydrated">
+                                        <img class="card-img" src="https://web.xpi.com.br/wp-content/uploads/2022/07/Card_Desktop_-_120x125.png">
+                                        <div class="card-content">
+                                            <h1 class="content-card-h1 hydrated">Tem dinheiro em caixa? Invista o dinheiro do seu negócio com a XP Empresas</h1>
+                                            <h2 class="content-card-h2 hydrated">Abra sua conta PJ
+                                                <div class="setinha">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5 12H18" stroke="black" stroke-width="1.5" style="stroke: rgb(251, 193, 5);"></path>
+                                                        <path d="M12 5L19 12L12 19" stroke="black" stroke-width="1.5" style="stroke: rgb(251, 193, 5);"></path>
+                                                        </svg>
+                                                </div>
+                                            </h2>
+                                            
+                                        </div>
+                                    </soma-card>
+                                </a>
+                                <a class="card-a" href="">
+                                    <soma-card class="soma-card hydrated">
+                                        <img class="card-img" src="https://web.xpi.com.br/temp-abtests-assets/wp-content/uploads/sites/15/2022/06/simulador-xp-card.png">
+                                        <div class="card-content">
+                                            <h1 class="content-card-h1 hydrated">SIMULE GRÁTIS quanto seu<br>dinheiro pode render na XP</h1>
+                                            <h2 class="content-card-h2 hydrated">Simule agora
+                                                <div class="setinha">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5 12H18" stroke="black" stroke-width="1.5" style="stroke: rgb(251, 193, 5);"></path>
+                                                        <path d="M12 5L19 12L12 19" stroke="black" stroke-width="1.5" style="stroke: rgb(251, 193, 5);"></path>
+                                                        </svg>
+                                                </div>
+                                            </h2>
+                                            
+                                        </div>
+                                    </soma-card>
+                                </a>
+                            </soma-grid-col>
+                        </soma-grid-row>
+                    </soma-grid>
+                </soma-container>
+            </soma-container>
+        </soma-container >
+        <soma-container full class="sobre-xp hydrated">
+            <soma-container class="xp-container soma-container hydrated">
+                <div class="sobre-xp-main">
+                    <header class="header-xp">
+                        <h1 class="stl-h1">Há 20 anos transformando<br>o mercado financeiro para melhorar<br>a vida das pessoas.</h1>
+                        <h2 class="stl-h2">Somos referencia em diversidade e exclusividade de produtos,<br>imparcialidade, transparência e relacionamento.          </h2>
+                    </header>
+                </div>
+            </soma-container>
+        </soma-container>
+        <!--Button Help-->
+        <div id="divHelp">
+            <div class="help quest info">
+                <button style="background-color:#ffc709;" class="btnHelp yell">
+                    <span class="spn-btn">
+                        <svg viewBox="0 0 74.2 74.2">
+                        <g>
+                        <path d="M37.1,74.2C16.7,74.2,0,57.6,0,37.1S16.7,0,37.1,0s37.1,16.7,37.1,37.1S57.6,74.2,37.1,74.2z M37.1,4.8C19.3,4.8,4.8,19.3,4.8,37.1c0,17.8,14.5,32.3,32.3,32.3s32.3-14.5,32.3-32.3C69.4,19.3,54.9,4.8,37.1,4.8z"></path>
+                        <g>
+                            <path id="XMLID_17_" d="M29.4,22.7c1.9-2.1,4.6-3.1,8-3.1c3.1,0,5.6,0.9,7.5,2.6s2.8,4,2.8,6.7c0,1.7-0.3,3-1,4 c-0.7,1-2.1,2.6-4.2,4.6c-1.5,1.5-2.5,2.7-3,3.7c-0.3,0.7-0.5,1.5-0.6,2.6c-0.1,1.1-1,1.9-2.1,1.9h0c-1.2,0-2.2-1-2.1-2.3 c0.1-1.2,0.4-2.3,0.7-3.1c0.5-1.4,1.7-2.9,3.6-4.7l1.9-1.9c0.6-0.5,1-1.1,1.4-1.7c0.6-1,1-2.1,1-3.2c0-1.5-0.5-2.9-1.4-4 c-0.9-1.1-2.5-1.7-4.6-1.7c-2.7,0-4.5,1-5.5,2.9c-0.4,0.7-0.7,1.7-0.8,2.8c-0.1,1-1,1.8-2.1,1.8h0c-1.3,0-2.3-1.1-2.1-2.4 C27.1,26.2,28,24.3,29.4,22.7z M36.9,49.7L36.9,49.7c1.3,0,2.3,1,2.3,2.3v0.2c0,1.3-1,2.3-2.3,2.3h0c-1.3,0-2.3-1-2.3-2.3V52 C34.5,50.7,35.6,49.7,36.9,49.7z" class="st0"></path>
+                        </g>
+                        </g>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <!--Modal-->
+        <div id="bgModal" class="modalCont">
+            <div class="login-box">
+                <button class="exit-modal">
+                    <img class="close-modal" src="img/buttonexit.png" alt="Fechar">
+                </button>
+                <div class="first-row">
+                    <span class="welcome">Bem-vindo(a)</span>
+                    <span class="sua-conta">Entre com seu e-mail e senha para acessar sua conta</span>
+                </div>
+                <div class="conteudo">
+                    <span class="email-erro"></span>
+                    <span class="senha-erro"></span>
+                    <div class="area-email">
+                        <input id="email" type="email" placeholder="Insira seu e-mail">
+                    </div>
+                    <div class="area-senha">
+                        <input id="senha" type="password" placeholder="Insira sua senha">
+                    </div>
+                    <button type="submit" class="submit-btn">Entrar</button>
+                </div>
+            </div>
+        </div>
+        <!--Busca-->
+        <div class="logado">
+            <H1 class="h1-search">Descubra uma convesão disponível e busque um par para moeda:</H1>
+            <input id="inpbusca" class="inpsearch" type="text" placeholder="Ex: BRL, USD, EUR, BTC ou BTC-BRL, ETH-USD">
+            <div class="divBtn">
+                <button class="searchBtn">Conversão Disponível ✅</button>
+                <button class="pairBtn">🔎 Buscar Par 💱</button>
+            </div>
+            
+            <div id="boxResults" class="box-logado"></div>
+            
+            <button class="btnDeslog">Logout</button>
+        </div>
+    <script src="Login/login.js"></script>
+    <script src="Login/modal.js"></script>
+    <script src="Busca/busca.js"></script>   
+
+    </body>
+</html>
+
+
