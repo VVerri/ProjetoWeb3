@@ -9,7 +9,7 @@ createToken = async (user, req, res => {
         adm: user.adm
     }, SECRET);
 
-    res.status(200).json({message: "Autenticação realizada com sucesso", token})
+    res.status(200).json({message: "Autenticação realizada com sucesso", token});
 })
 
 module.exports = createToken;
