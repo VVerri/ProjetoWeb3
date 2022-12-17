@@ -6,7 +6,7 @@ const checkToken = require ("../Helpers/checkToken");
 const userByToken = require ("../Helpers/userByToken")
 const SECRET = "09609M8345UJ60F983U476NG9768gn987nt987NTB987nt987";
 
-class userController {
+module.exports = class userController {
 
     // Registrando usuário
     static async register(req, res) {
@@ -96,6 +96,139 @@ class userController {
         }
     }
 
+    // Fazer login com o usuário
+    static async login(req, res) {
+
+        const {
+            email,
+            password
+        } = req.body
+
+        //Validações
+        if (!email) {
+            return res.status(422).json({
+                message: "O e-mail é obrigatório para logar!"
+            });
+        }
+
+        if (!password) {
+            return res.status(422).json({
+                message: "A senha é obrigatória para logar!"
+            });
+        }
+
+        // Checando se o usuário está cadastrado
+        const user = await User.findOne({
+            email: email
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                message: "Usuário não encontrado. Cadastre-se agora!"
+            });
+        }
+
+        // Checando se a senha confere descriptografando com o bcrypt
+        const checkPassword = await bcrypt.compare(password, user.password);
+
+        if (!checkPassword) {
+            return res.status(422).json({
+                message: "Senha inválida"
+            });
+        }
+
+        await createToken(user, req, res);
+    }
+        
+    //Mantendo usuário conectado ao sistema
+    static async authenticaded(req, res) {
+
+        let userOnline;
+
+        if (req.headers['authorization']) {
+            const token = checkToken(req);
+            const user = await userByToken(token);
+            userOnline = user;
+            userOnline.password = undefined;
+        } else {
+            userOnline = null;
+        }
+
+        res.status(200).send(userOnline);
+    }
     
+    /*
+// Read -  Leitura de dados
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find()
+        res.status(200).json(users)
+
+    } catch (error) {
+        res.status(500).json({
+            error: error
+        })
+    }
+})
+*/
+
+
+/*
+// Update - Atualização de dados (PUT, PATCH)
+router.patch('/:id', async (req, res) => {
+
+    const id = req.params.id
+    const { name, celphone, approved } = req.body
+
+    const user = {
+        name,
+        celphone,
+        approved
+    }
+
+    try {
+        const updatedUser = await User.updateOne({_id:id}, user)
+
+        if(updatedUser.matchedCount === 0){
+            res.status(422).json({ message: 'O usuário não foi encontrado! '})
+            return
+        }
+
+        res.status(200).json(user)
+
+
+    } catch (error) {
+        res.status(500).json({
+            error: error
+        })
+    }
+
+})
+
+// Delete - Deletar dados
+
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id
+    const user = await User.findOne({ _id: id})
+
+    if(!user){
+        res.status(422).json({ message: 'O usuário não foi encontrado! '})
+        return
+    }
+
+    try {
+        await User.deleteOne({ _id: id})
+
+        res.status(200).json({ message: 'Usuário removido com sucesso'})
+
+
+    } catch (error) {
+        res.status(500).json({
+            error: error
+        })
+    }
+
+})
+*/
 }
 

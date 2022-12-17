@@ -31,3 +31,5 @@ const userByToken = async (token) => {
     return user;
 
 }
+
+module.exports = userByToken;
