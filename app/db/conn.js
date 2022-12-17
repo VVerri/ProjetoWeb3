@@ -14,8 +14,8 @@ async function main() {
             `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.zyxz4cj.mongodb.net/apidatabase?retryWrites=true&w=majority`
         );
 
-        console.log( "Conectado ao Banco!" );
-        
+        console.log("Conectado ao Banco!");
+
     } catch (error) {
         console.log(`Erro: ${error}`);
     }
