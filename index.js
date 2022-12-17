@@ -1,40 +1,23 @@
 // Configuração inicial
-require('dotenv').config()
 const express = require('express')
 const cors = require ('cors')
-const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const User = require('./models/User')
+
 const app = express()
 
+// Conectando ao DB
+const conn = require ("./app/db/conn");
+conn();
 
 // Utilizando o CORS
 app.use(cors())
+
 // Configurando JSON como resposta
 app.use(express.json())
-
-// Ler JSON / middlewares
-
-
-
-// Rotas da API
-//const userRoutes = require('./routes/userRoutes')
-
-//app.use('/user', userRoutes)
-
-// Rota inicial /endpoint
-app.get('/', (req, res) => {
-    //mostrar req
-
-    res.status(200).json({ message: 'Bem vindo a nossa API!' })
-})
-
 
 // Registrar usuários
 app.post('/auth/register', async (req, res) => {
 
-    const { name, email, password, confirmpassword } = req.body
+    const { name, email, password, confirmpassword, adm } = req.body
 
     // validações
     if(!name){
@@ -49,8 +32,16 @@ app.post('/auth/register', async (req, res) => {
         return res.status(422).json({ message: 'A senha é obrigatória! '})
     }
 
+    if(!confirmpassword){
+        return res.status(422).json({ message: 'A confirmação de senha é obrigatória! '})
+    }
+
     if(password !== confirmpassword) {
         return res.status(422).json({ message: 'As senhas não conferem! '})
+    }
+
+    if(adm === undefined || adm === null){
+        return res.status(422).json({ message: 'A seleção de privilégio é obrigatória! '})
     }
 
     // Checando se o usuário já existe
@@ -62,8 +53,8 @@ app.post('/auth/register', async (req, res) => {
 
     
 
-    //Criando a senha
-    const salt = await bcrypt.genSalt(12)
+    //Criando a senha criptografada
+    const salt = await bcrypt.genSalt(18)
     const passwordHash = await bcrypt.hash(password, salt)
 
     //Criando user
@@ -71,6 +62,7 @@ app.post('/auth/register', async (req, res) => {
         name,
         email,
         password: passwordHash,
+        adm
     })
 
     try {
@@ -96,11 +88,11 @@ app.post("/auth/login", async (req, res) => {
 
     //Validações
     if(!email){
-        return res.status(422).json({ message: 'O e-mail é obrigatório! '})
+        return res.status(422).json({ message: 'O e-mail é obrigatório para logar! '})
     }
 
     if(!password){
-        return res.status(422).json({ message: 'A senha é obrigatória! '})
+        return res.status(422).json({ message: 'A senha é obrigatória para logar! '})
     }
 
     // Checando se o usuário está cadastrado
@@ -110,7 +102,7 @@ app.post("/auth/login", async (req, res) => {
         return res.status(404).json({ message: ' Usuário não encontrado. Cadastre-se agora! '})
     }
 
-    // Checando se a senha confere
+    // Checando se a senha confere descriptografando com o bcrypt
     const checkPassword = await bcrypt.compare(password, user.password)
 
     if(!checkPassword) {
@@ -182,8 +174,4 @@ function checkToken(req, res, next) {
 // entregar rota de porta
 
 
-// Conectando ao DB
-const conn = require ("./db/conn");
-
-conn();
 
