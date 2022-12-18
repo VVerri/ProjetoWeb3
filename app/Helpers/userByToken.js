@@ -6,7 +6,7 @@ const userByToken = async (token) => {
 
     if (!token) {
         return res.status(401).json({
-            message: "Acesso negado. Você precisa não tem um token de acesso!"
+            message: "Acesso negado. Você não tem um token de acesso!"
         });
     }
 

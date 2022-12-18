@@ -145,7 +145,7 @@ class userController {
 
         let userOnline;
 
-        if (req.headers['authorization']) {
+        if (req.headers.authorization) {
             const token = checkToken(req);
             const user = await userByToken(token);
             userOnline = user;
@@ -154,10 +154,14 @@ class userController {
             userOnline = null;
         }
 
-        res.status(200).send(userOnline);
+        res.status(200).json({ userOnline });
     }
-    
-    /*
+
+}
+
+module.exports = userController;
+
+/*
 // Read -  Leitura de dados
 router.get('/', async (req, res) => {
     try {
@@ -170,10 +174,10 @@ router.get('/', async (req, res) => {
         })
     }
 })
-*/
 
 
-/*
+
+
 // Update - Atualização de dados (PUT, PATCH)
 router.patch('/:id', async (req, res) => {
 
@@ -230,6 +234,3 @@ router.delete('/:id', async (req, res) => {
 
 })
 */
-}
-
-module.exports = userController;

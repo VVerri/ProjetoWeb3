@@ -55,7 +55,7 @@ class cryptoController {
 
         try {
             const crypto = await Crypto.findOne({name: name});
-            res.status(200).json({crypto:crypto})
+            res.status(200).json({ crypto })
         } catch (error) {
             return res.status(401).json({ message: "Não foi encontrado nenhum par com esse nome!" });
         }
@@ -72,7 +72,7 @@ class cryptoController {
 
         try {
             const crypto = await Crypto.findOne({fromCurrency: fromCurrency});
-            res.status(200).json({crypto:crypto})
+            res.status(200).json({ crypto })
         } catch (error) {
             return res.status(401).json({ message: "Não foi encontrado nenhum par com essa moeda como origem!" });
         }
@@ -89,7 +89,7 @@ class cryptoController {
 
         try {
             const crypto = await Crypto.findOne({toCurrency: toCurrency});
-            res.status(200).json({crypto:crypto})
+            res.status(200).json({ crypto })
         } catch (error) {
             return res.status(401).json({ message: "Não foi encontrado nenhum par com essa moeda como destino!" });
         }
