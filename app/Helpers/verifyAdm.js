@@ -1,7 +1,7 @@
 const jwt = require ("jsonwebtoken");
 const checkToken = require ("./checkToken");
 const User = require ("../models/User")
-const SECRET = "09609M8345UJ60F983U476NG9768gn987nt987NTB987nt987";
+const SECRET = process.env.SECRET;
 
 const verifyAdm = (req, res, next) => {
 

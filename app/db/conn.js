@@ -1,5 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
+const DB_URL = process.env.DB_URL;
 
 async function main() {
 
@@ -7,9 +8,7 @@ async function main() {
 
         mongoose.set("strictQuery", true);
 
-        await mongoose.connect(
-            `mongodb+srv://victorverri:Verriteste1234@apicluster.zyxz4cj.mongodb.net/?retryWrites=true&w=majority`
-        );
+        await mongoose.connect(DB_URL);
 
         console.log("Conectado ao Banco!");
 
