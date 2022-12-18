@@ -6,10 +6,7 @@ async function main() {
 
     try {
 
-        mongoose.set("strictQuery", true);
-
         await mongoose.connect(DB_URL);
-
         console.log("Conectado ao Banco!");
 
     } catch (error) {
