@@ -1,12 +1,12 @@
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
 const User = require ("../models/User");
-const createToken = require ("../Helpers/createToken");
-const checkToken = require ("../Helpers/checkToken");
-const userByToken = require ("../Helpers/userByToken")
+const createToken = require ("../helpers/createToken");
+const checkToken = require ("../helpers/checkToken");
+const userByToken = require ("../helpers/userByToken")
 const SECRET = "09609M8345UJ60F983U476NG9768gn987nt987NTB987nt987";
 
-module.exports = class userController {
+class userController {
 
     // Registrando usuário
     static async register(req, res) {
@@ -232,3 +232,4 @@ router.delete('/:id', async (req, res) => {
 */
 }
 
+module.exports = userController;

@@ -16,10 +16,10 @@ app.use(express.static('public'));
 
 // Rotas
 const userRoutes = require ("./app/routes/userRoutes");
-//const cryptoRoutes = require ("./app/routes/cryptoRoutes");
+const cryptoRoutes = require ("./app/routes/cryptoRoutes");
 
-app.use("/user", userRoutes);
-//app.use("/cryptos", cryptoRoutes);
+app.use("/users", userRoutes);
+app.use("/cryptos", cryptoRoutes);
 
 
 // Conectando ao DB
