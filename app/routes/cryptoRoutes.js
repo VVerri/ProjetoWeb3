@@ -3,8 +3,8 @@ const cryptoController = require("../controllers/cryptoController");
 const verifyAdm = require("../helpers/verifyAdm");
 
 router.post("/create", cryptoController.create);
-router.get("/:name", cryptoController.searchPair);
-router.get("/:fromCurrency", cryptoController.searchFrom);
-router.get("/:toCurrency", cryptoController.searchTo);
+router.get("/pairs/:pairName", cryptoController.searchPair);
+router.get("/from/:fromCurrency", cryptoController.searchFrom);
+router.get("/to/:toCurrency", cryptoController.searchTo);
 
 module.exports = router;

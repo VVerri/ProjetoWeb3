@@ -81,18 +81,19 @@ class userController {
 
         try {
 
-            await user.save()
+            const newUser = await user.save();
 
             res.status(200).json({
-                message: "Usuário cadastrado com sucesso!"
-            })
+                message: "Usuário cadastrado com sucesso!",
+                newUser
+            });
 
         } catch (error) {
 
             console.log(error)
             res.status(500).json({
                 error: 'Aconteceu um erro no servidor, tente novamente mais tarde'
-            })
+            });
         }
     }
 
@@ -139,7 +140,7 @@ class userController {
 
         await createToken(user, req, res);
     }
-        
+
     //Mantendo usuário conectado ao sistema
     static async authenticaded(req, res) {
 
@@ -154,7 +155,9 @@ class userController {
             userOnline = null;
         }
 
-        res.status(200).json({ userOnline });
+        res.status(200).json({
+            userOnline
+        });
     }
 
 }

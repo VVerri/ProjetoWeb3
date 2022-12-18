@@ -5,11 +5,11 @@ const SECRET = "09609M8345UJ60F983U476NG9768gn987nt987NTB987nt987";
 
 const verifyAdm = (req, res, next) => {
 
-    /*if (req.headers.authorization) {
+    if (req.headers.authorization) {
         return res.status(401).json({
             message: "Acesso negado!H"
         });
-    }*/
+    }
 
     const token = checkToken(req);
 

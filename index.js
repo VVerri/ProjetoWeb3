@@ -1,6 +1,6 @@
 // Configuração inicial
 const express = require("express");
-const cors = require ("cors");
+const cors = require("cors");
 
 
 const app = express();
@@ -15,15 +15,15 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Rotas
-const userRoutes = require ("./app/routes/userRoutes");
-const cryptoRoutes = require ("./app/routes/cryptoRoutes");
+const userRoutes = require("./app/routes/userRoutes");
+const cryptoRoutes = require("./app/routes/cryptoRoutes");
 
 app.use("/users", userRoutes);
 app.use("/cryptos", cryptoRoutes);
 
 
 // Conectando ao DB
-const conn = require ("./app/db/conn");
+const conn = require("./app/db/conn");
 conn();
 app.listen(3000);
 
