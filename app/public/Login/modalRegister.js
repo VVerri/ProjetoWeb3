@@ -22,7 +22,7 @@ function showModal(idModal){
 }
 
 //Botção de Acesse sua conta funciona para abrir o modal de login
-const loginButton = document.querySelector('#registerButton');
-loginButton.addEventListener('click', () => {
+const registerButton = document.querySelector('#registerButton');
+registerButton.addEventListener('click', () => {
     showModal('rgModal')
 })

@@ -12,7 +12,7 @@ function login() {
       email,
       password
     }
-    loginReq.open('POST', 'https://reqres.in/api/login', true);
+    loginReq.open('POST', 'https://projetoweb3-victorverri.herokuapp.com/users/login', true);
     loginReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
     loginReq.onreadystatechange = function () {
       //Verifica o status de resposta para logar
