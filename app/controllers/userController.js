@@ -4,7 +4,7 @@ const User = require ("../models/User");
 const createToken = require ("../helpers/createToken");
 const checkToken = require ("../helpers/checkToken");
 const userByToken = require ("../helpers/userByToken")
-const SECRET = process.env.SECRET;
+const SECRET = "09609M8345UJ60F983U476NG9768gn987nt987NTB987nt987";
 
 class userController {
 
