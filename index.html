@@ -45,7 +45,7 @@
                     <div class="col-singup">
                         <button class="open-account" href="">abra sua conta</button>
                     </div>
-                    <div class="col-singin">
+                    <div id="registerButton" class="col-singin">
                         <button id="buttonLogin" class="login" href="">Acesse sua conta</button>
                         <button id="buttonLogado" class="logadoBtn" href="">Bem-vindo</button>
                     </div>
@@ -170,6 +170,48 @@
                         <input id="senha" type="password" placeholder="Insira sua senha">
                     </div>
                     <button type="submit" class="submit-btn">Entrar</button>
+                </div>
+            </div>
+        </div>
+        <!--Modal Register-->
+        <div id="rgModal" class="modalCont">
+            <div class="register-box">
+                <button class="exit-modal">
+                    <img class="close-modal" src="img/buttonexit.png" alt="Fechar">
+                </button>
+                <div class="first-row">
+                    <span class="welcome">Bem-vindo(a)</span>
+                    <span class="sua-conta">Cadastre-se já. Entre com seus dados para criar sua conta</span>
+                </div>
+                <div class="conteudo">
+                    <span class="email-erro" style="display: none;"></span>
+                    <span class="senha-erro" style="display: none;"></span>
+                    <div class="area-email">
+                        <input id="username" type="text" placeholder="Insira seu nome de usuário">
+                    </div>
+                    <div class="area-email">
+                        <input id="emailReg" type="email" placeholder="Insira seu e-mail">
+                    </div>
+                    <div class="area-email">
+                        <input id="senhaReg" type="password" placeholder="Insira sua senha">
+                    </div>
+                    <div class="area-email">
+                        <input id="confSenhaReg" type="password" placeholder="Confirme sua senha">
+                    </div>
+                    <div class="box-priv">
+                        <label class="label-def">Privilégio:</label>
+                        <div class="content">
+                            <div>
+                                <input class="check" type="radio" id="opt-adm" value="adm" name="priv" isadm="true">
+                                <label class="label-def">Administrador</label>
+                            </div>
+                            <div>
+                                <input class="check" type="radio" id="opt-con" value="normal" name="priv" isadm="false" checked="">
+                                <label class="label-def">Convidado</label>
+                            </div>                          
+                        </div>                        
+                    </div>
+                    <button type="submit" class="submit-btn">Cadastrar</button>
                 </div>
             </div>
         </div>
